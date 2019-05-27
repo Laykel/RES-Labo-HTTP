@@ -6,6 +6,7 @@ _Authors: Alison Savary, Luc Wachter_
 
 - In directory `step1`.
 - Using the `php:7.3-apache` docker image.
+- Using the [Grayscale](https://startbootstrap.com/previews/grayscale/) free bootstrap theme.
 - `docker run -d -p 2205:80 php:7.3-apache`
 - Then we can `telnet 127.0.0.1 2205`, and `GET HTTP/1.1 /`.
   - We get an error, because we don't have access to the server's root.
