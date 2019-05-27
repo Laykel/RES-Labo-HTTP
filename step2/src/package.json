@@ -1,0 +1,42 @@
+{
+  "name": "smoljok",
+  "version": "1.0.0",
+  "description": "A small web server that serves witty comment through HTTP.",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laykel/RES-Labo-HTTP.git"
+  },
+  "keywords": [
+    "http",
+    "server",
+    "express",
+    "jokes"
+  ],
+  "author": "Luc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laykel/RES-Labo-HTTP/issues"
+  },
+  "homepage": "https://github.com/Laykel/RES-Labo-HTTP#readme",
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  },
+  "dependencies": {
+    "loader-message": "^2.0.2"
+  }
+}
