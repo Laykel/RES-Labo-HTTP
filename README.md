@@ -5,6 +5,7 @@ _Authors: Alison Savary, Luc Wachter_
 ## Step 1: Static Apache httpd server
 
 - In directory `step1`.
+- Maybe a small schema here.
 - Using the `php:7.3-apache` docker image.
 - Using the [Grayscale](https://startbootstrap.com/previews/grayscale/) free bootstrap theme.
 - `docker run -d -p 2205:80 php:7.3-apache`
@@ -15,6 +16,11 @@ _Authors: Alison Savary, Luc Wachter_
 - And we can see our sources served by the server at address `127.0.0.1:2205`.
 
 ## Step 2: Dynamic express.js server
+
+- In directory `step2`.
+- Maybe a small schema here.
+- Using the "loader-message" npm module to generate witty comments.
+- Using the express framework to respond to http requests.
 
 ## Step 3: Reverse proxy with apache (static configuration)
 
