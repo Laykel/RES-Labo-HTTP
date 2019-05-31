@@ -4,7 +4,7 @@ _Authors: Alison Savary, Luc Wachter_
 
 ## Step 1: Static Apache httpd server
 
-- In directory `step1`.
+- In directory `1_httpd-php-static`.
 - Maybe a small schema here.
 - Using the `php:7.3-apache` docker image.
 - Using the [Grayscale](https://startbootstrap.com/previews/grayscale/) free bootstrap theme.
@@ -17,14 +17,21 @@ _Authors: Alison Savary, Luc Wachter_
 
 ## Step 2: Dynamic express.js server
 
-- In directory `step2`.
+- In directory `2_express-dynamic`.
 - Using port 3000.
 - Maybe a small schema here.
 - Using the "loader-message" npm module to generate witty comments.
+- Addition of the timestamp to make more interesting JSON objects.
 - Using the express framework to respond to http requests.
 
 ## Step 3: Reverse proxy with apache (static configuration)
 
+- In directory `3_httpd-reverse-proxy`.
+
 ## Step 4: AJAX requests with JQuery
+
+- Wouldn't work without a reverse proxy because of the same-origin policy.
+- The website comes from one static server while the dynamic content comes from another.
+- This isn't allowed by the browser, but the reverse proxy is a single origin.
 
 ## Step 5: Dynamic reverse proxy configuration
