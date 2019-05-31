@@ -4,20 +4,15 @@ _Authors: Alison Savary, Luc Wachter_
 
 ## Step 1: Static Apache httpd server
 
-- In directory `1_httpd-php-static`.
-- Maybe a small schema here.
-- Using the `php:7.3-apache` docker image.
-- Using the [Grayscale](https://startbootstrap.com/previews/grayscale/) free bootstrap theme.
-- `docker run -d -p 2205:80 php:7.3-apache`
-- Then we can `telnet 127.0.0.1 2205`, and `GET HTTP/1.1 /`.
-  - We get an error, because we don't have access to the server's root.
-- Once our `Dockerfile` is done, `docker build -t res/apache-static .`
-- Then, `docker run -d -p 2205:80 res/apache-static .`
-- And we can see our sources served by the server at address `127.0.0.1:2205`.
+- A docker image ready to setup a static Apache `httpd` server to serve a simple bootstrap landing page.
+- Full documentation in directory `1_httpd-php-static`'s readme: [link](1_httpd-php-static/README.md).
 
 ## Step 2: Dynamic express.js server
 
-- In directory `2_express-dynamic`.
+- A docker image ready to setup a dynamic `express.js` server, built on `Node.js`.
+- It serves a random number of witty comments in JSON through HTTP.
+- Full documentation in directory `2_express-dynamic`'s readme: [link](2_express-dynamic/README.md).
+
 - Using port 3000.
 - Maybe a small schema here.
 - Using the "loader-message" npm module to generate witty comments.
