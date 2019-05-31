@@ -18,6 +18,7 @@ _Authors: Alison Savary, Luc Wachter_
 ## Step 2: Dynamic express.js server
 
 - In directory `step2`.
+- Using port 3000.
 - Maybe a small schema here.
 - Using the "loader-message" npm module to generate witty comments.
 - Using the express framework to respond to http requests.
