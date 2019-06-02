@@ -6,7 +6,7 @@
 - It uses the `php:7.3-apache` docker image, as I'm more familiar with that directory structure and we might have a use for PHP in a future step.
 - The folder `public` contains the website's sources.
 
-![Architecture diagram](../img/apache-static.png?s=200)
+![Architecture diagram](../img/apache-static.png){:height="50%" width="50%"}
 
 ## The landing page website
 
