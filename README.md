@@ -13,12 +13,6 @@ _Authors: Alison Savary, Luc Wachter_
 - It serves a random number of witty comments in JSON through HTTP.
 - Full documentation in directory `2_express-dynamic`'s readme: [link](2_express-dynamic/README.md).
 
-- Using port 3000.
-- Maybe a small schema here.
-- Using the "loader-message" npm module to generate witty comments.
-- Addition of the timestamp to make more interesting JSON objects.
-- Using the express framework to respond to http requests.
-
 ## Step 3: Reverse proxy with apache (static configuration)
 
 - In directory `3_httpd-reverse-proxy`.
