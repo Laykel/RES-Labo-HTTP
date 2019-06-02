@@ -52,7 +52,6 @@
       <div class="mx-auto text-center">
         <h1 class="mx-auto my-0 text-uppercase">Not a lab</h1>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">THE lab. The one to end them all.</h2>
-        <h2 class="text-success mx-auto mt-2 mb-5" id="loading"></h2>
         <a href="#about" class="btn btn-primary js-scroll-trigger">Get Enlightened</a>
       </div>
     </div>
@@ -166,9 +165,6 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/grayscale.min.js"></script>
-
-  <!-- Custom script to load a witty loading message in the page -->
-  <script src="js/joke.js"></script>
 
 </body>
 

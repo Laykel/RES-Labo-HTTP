@@ -21,6 +21,7 @@ _Authors: Alison Savary, Luc Wachter_
 
 ## Step 4: AJAX requests with JQuery
 
+- For this step, no new docker image was needed.
 - Wouldn't work without a reverse proxy because of the same-origin policy.
 - The website comes from one static server while the dynamic content comes from another.
 - This isn't allowed by the browser, but the reverse proxy is a single origin.
