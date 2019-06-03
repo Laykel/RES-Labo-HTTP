@@ -1,4 +1,4 @@
-# Step 2: Dynamic express.js server
+# Step 3: Reverse proxy with Apache httpd
 
 ## General architecture
 
