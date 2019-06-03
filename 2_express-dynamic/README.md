@@ -17,7 +17,8 @@
 
 ## How to use
 
-- In the folder where our `Dockerfile` is located, run `docker build -t res/express-dynamic .`
+- In the folder `src` where the `package.json` file is located, run `npm install` to install dependencies (`Express.js` and `loader-message`).
+- Then, in the folder where our `Dockerfile` is located, run `docker build -t res/express-dynamic .`
 - Then, `docker run -d -p 2205:3000 res/express-dynamic` (We use 2205 in this example. You can use your preferred port for this.)
 - You can at this point create a request through any HTTP client (your preferred browser, Postman, `telnet` or whatever) to `127.0.0.1:2205` and observe the response.
 - Example with telnet (don't forget to hit "return" twice):
@@ -26,5 +27,5 @@
 telnet 127.0.0.1 2205
 GET / HTTP/1.1
 
----\> response
+---> response
 ```
