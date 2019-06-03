@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+# Add setup for HTTP Infra lab
+echo "Setup for HTTP Infra lab..."
+echo "Static app URL: $STATIC_APP"
+echo "Dynamic app URL: $DYNAMIC_APP"
+
+# Apache gets grumpy about existing PID files
+rm -f /var/run/apache2/apache2.pid
+
+exec apache2 -DFOREGROUND
