@@ -35,3 +35,6 @@ Authors: _Alison Savary, Luc Wachter_
 ## Step 5: Dynamic reverse proxy configuration
 
 - Copied from step 3, with the following changes.
+- Copied `apache2-foreground` from our php images' [configuration](https://github.com/docker-library/php/blob/8203d502a18ecfe79ac011f85843754fb524b899/7.3/stretch/apache/apache2-foreground).
+- Created a php script as a template for apache's `sites-available` `conf` file.
+- Adapted Dockerfile to copy the script and the php script.
