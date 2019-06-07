@@ -1,6 +1,6 @@
 # HTTP Infrastructure Lab
 
-_Authors: Alison Savary, Luc Wachter_
+Authors: _Alison Savary, Luc Wachter_
 
 ## Step 1: Static Apache httpd server
 
@@ -34,4 +34,4 @@ _Authors: Alison Savary, Luc Wachter_
 
 ## Step 5: Dynamic reverse proxy configuration
 
-TBC
+- Copied from step 3, with the following changes.
