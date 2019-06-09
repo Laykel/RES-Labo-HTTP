@@ -1,25 +1,13 @@
-# Step 3: Reverse proxy with Apache httpd
+# Step 5: Reverse proxy with Apache httpd
 
 ## General architecture
 
-- Uses Apache's `httpd` as a reverse proxy to forward requests to 2 servers.
-- Listening on port 80.
-- The first server is the one from step 1 (static apache served website).
-- The second server is the one from step 2 (dynamic Express.js web service sending JSON).
-- The `Dockerfile` simply extends the base image and copies the reverse proxy configuration to `/etc/apache2`.
-- It uses the `php:7.3-apache` docker image, as I'm more familiar with that directory structure and we might have a use for PHP in a future step.
+- The goal is to make the configuration of the web servers' IP addresses more dynamic, so that we don't have to rebuild the reverse proxy everytime if the IPs don't match.
+- Identical to step 3, with the following changes:
+    - Copied the `apache2-foreground` shell script from Dockerhub's [php image configuration](https://github.com/docker-library/php/blob/8203d502a18ecfe79ac011f85843754fb524b899/7.3/stretch/apache/apache2-foreground) and adapted it to generate our `001-reverse-proxy.conf` file dynamically, using the provided environment variables.
+    - In order to create it, we added a php script as a template for apache's `sites-available` `conf` file, with code that retrieves the environment variables `STATIC_APP` and `DYNAMIC_APP` and use it as the web servers' IP addresses.
+    - We then adapted the Dockerfile to copy the `apache2-foreground` script and the php script in the container's filesystem.
 
-<img src="../img/httpd-rp.png" width="75%" height="75%">
-
-## The Configuration
-
-- We create a new VirtualHost in `/etc/apache2/sites-available/` that we call `001-reverse-proxy.conf`.
-- We give it a `ServerName`, so that it is accessible only when the header `Host: demo.res.ch` is specified.
-- This site doesn't serve resources but forwards the requests to one of the servers specified in `ProxyPass` and `ProxyPassReverse`.
-- Make sure the **hardcoded** IP addresses are correct for your setup, and change them accordingly.
-- We also added a default VHost (`000-default.conf`) that doesn't do anything to make sure our reverse proxy VHost is not the default one.
-  - This is not mandatory, but allows us to see the use of the `Host` header.
-  - If you don't want to modify your `/etc/hosts` file, you can `a2dissite 000*`.
 
 ## How to use
 
@@ -28,14 +16,13 @@
   - `docker run -d --name express-dynamic res/express-dynamic`
 - Use `docker inspect <container_name> | grep -i ipaddress` to find out the two servers' IP addresses.
 
-- In the folder where our `Dockerfile` is located, run `docker build -t res/httpd-rp .`
-- Then, `docker run -d -p 2205:80 res/httpd-rp` (We use 2205 in this example. You can use your preferred port for this.)
-- If we run the container now, we'll see that it doesn't work. This is because we must specify the `Host` header to be the `ServerName` in our VirtualHost setup.
-  - We can do this manually in `telnet` or Postman, or we can tell our browser to do it using our `hosts` file.
-  - If you want to go this way, just add a line in your `hosts` file with `127.0.0.1 demo.res.ch` or whatever ServerName you specified.
+- In the folder where our `Dockerfile` is located, run `docker build -t res/httpd-rp .`.
+- Then, `docker run -d -e STATIC_APP=172.17.0.x -e DYNAMIC_APP=172.17.0.y:3000 -p 2205:80 res/httpd-rp`. (We use 2205 in this example. You can use your preferred port for this.)
+- The two parameters after the `-e` flags are environment variables for your container.
+- You must provide the IP addresses you found in the preceding step after those flags.
 
 - Now we can access `http://demo.res.ch:2205` or `http://demo.res.ch:2205/api/jokes/` through our favourite HTTP client, and get what we expect.
 
 ## Disclaimer
 
-Warning: this is a static, hardcoded configuration that might need to be changed each time it is run depending on the IP addresses of the servers. It is not a good idea to use this simple configuration.
+Warning: this is only a marginally better solution than step 3's. You must check the containers' IP addresses yourself and set the environment variables everytime you run the container.

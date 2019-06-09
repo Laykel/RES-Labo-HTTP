@@ -34,7 +34,8 @@ Authors: _Alison Savary, Luc Wachter_
 
 ## Step 5: Dynamic reverse proxy configuration
 
-- Copied from step 3, with the following changes.
-- Copied `apache2-foreground` from our php images' [configuration](https://github.com/docker-library/php/blob/8203d502a18ecfe79ac011f85843754fb524b899/7.3/stretch/apache/apache2-foreground).
-- Created a php script as a template for apache's `sites-available` `conf` file.
-- Adapted Dockerfile to copy the script and the php script.
+- A docker image ready to setup a simple reverse proxy using Apache `httpd`, setting the proxied containers using environment vairables.
+- Copied from step 3, with the following changes:
+  - Added an `apache2-foreground` script, as well as a php script to generate the reverse proxy's configuration depending on the environment variables.
+  - Adapted `Dockerfile` accordingly.
+- Full documentation in directory `5_httpd-reverse-proxy`'s readme: [link](5_httpd-reverse-proxy/README.md).
