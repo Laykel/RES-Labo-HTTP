@@ -34,7 +34,7 @@ Authors: _Alison Savary, Luc Wachter_
 
 ## Step 5: Dynamic reverse proxy configuration
 
-- A docker image ready to setup a simple reverse proxy using Apache `httpd`, setting the proxied containers using environment vairables.
+- A docker image ready to setup a simple reverse proxy using Apache `httpd`, setting the proxied containers using environment variables.
 - Copied from step 3, with the following changes:
   - Added an `apache2-foreground` script, as well as a php script to generate the reverse proxy's configuration depending on the environment variables.
   - Adapted `Dockerfile` accordingly.
