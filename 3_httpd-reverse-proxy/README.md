@@ -19,7 +19,7 @@
 - Make sure the **hardcoded** IP addresses are correct for your setup, and change them accordingly.
 - We also added a default VHost (`000-default.conf`) that doesn't do anything to make sure our reverse proxy VHost is not the default one.
   - This is not mandatory, but allows us to see the use of the `Host` header.
-  - If you don't want to modify your `/etc/hosts` file, you can `a2dissite 000*`.
+  - If you don't want to modify your `/etc/hosts` file, you can use `a2dissite 000*`.
 
 ## How to use
 
