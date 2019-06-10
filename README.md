@@ -42,6 +42,6 @@ Authors: _Alison Savary, Luc Wachter_
 
 ### Bonus steps
 
-- We have implemented the bonus steps using [Traefik](https://traefik.io/) and [Portainer](https://www.portainer.io/).
+- We have implemented the bonus steps using [Traefik](https://traefik.io/) (and [Portainer](https://www.portainer.io/)).
 - The configuration can be found in the `6_bonus-traefik` folder.
 - Full documentation in the folder's readme: [link](6_bonus-traefik/README.md).

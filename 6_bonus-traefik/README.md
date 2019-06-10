@@ -71,6 +71,10 @@ As for the cluster management, we observed that killing an `express.js` containe
 
 ## Management UI
 
+For the management UI, we only have a basic one through Traefik, that only allows monitoring of containers and no actual management (launching or removing a container, for example).
+
+We considered using Portainer for our management UI, but didn't quite have the time to set it up, sadly.
+
 ## Load balancing: round-robin vs sticky sessions
 
 We didn't have time to experiment with this bonus step.
