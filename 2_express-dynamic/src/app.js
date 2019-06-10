@@ -3,9 +3,11 @@
 
 const express = require('express');
 const joke = require('./joke.js');
+const uuid = require('uuid/v4');
 
 const app = express();
 const port = 3000;
+const id = uuid();
 
 // Route requests to root
 app.get('/', (request, response) => {
@@ -13,6 +15,7 @@ app.get('/', (request, response) => {
   console.log(request.headers);
 
   const payload = {
+	serverId: id,
     timestamp: new Date().toISOString(),
     messages: joke.generateMessages(),
   };
