@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "loader-message": "^2.0.2"
+    "loader-message": "^2.0.2",
+    "uuid": "^3.3.2"
   }
 }

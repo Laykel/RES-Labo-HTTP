@@ -4,10 +4,9 @@
 
 - The goal is to make the configuration of the web servers' IP addresses more dynamic, so that we don't have to rebuild the reverse proxy every time if the IPs don't match.
 - Identical to step 3, with the following changes:
-    - Copied the `apache2-foreground` shell script from Dockerhub's [php image configuration](https://github.com/docker-library/php/blob/8203d502a18ecfe79ac011f85843754fb524b899/7.3/stretch/apache/apache2-foreground) and adapted it to generate our `001-reverse-proxy.conf` file dynamically, using the provided environment variables.
-    - In order to create it, we added a php script as a template for apache's `sites-available` `conf` file, with code that retrieves the environment variables `STATIC_APP` and `DYNAMIC_APP` and use it as the web servers' IP addresses.
-    - We then adapted the Dockerfile to copy the `apache2-foreground` script and the php script in the container's filesystem.
-
+  - Copied the `apache2-foreground` shell script from Dockerhub's [php image configuration](https://github.com/docker-library/php/blob/8203d502a18ecfe79ac011f85843754fb524b899/7.3/stretch/apache/apache2-foreground) and adapted it to generate our `001-reverse-proxy.conf` file dynamically, using the provided environment variables.
+  - In order to create it, we added a php script as a template for apache's `sites-available` `conf` file, with code that retrieves the environment variables `STATIC_APP` and `DYNAMIC_APP` and use it as the web servers' IP addresses.
+  - We then adapted the Dockerfile to copy the `apache2-foreground` script and the php script in the container's filesystem.
 
 ## How to use
 
