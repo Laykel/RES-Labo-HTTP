@@ -28,3 +28,18 @@ services:
       - traefik.backend=express-dynamic
       - traefik.frontend.rule=Host:demo.res.ch;PathPrefixStrip:/api/jokes/
       - traefik.port=3000
+  
+  # Portainer container to manage containers
+  portainer:
+    image: portainer/portainer
+    ports:
+      - 9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.backend=portainer"
+      - "traefik.frontend.rule=Host:portainer.cloud.mydomain.com"
+      - "traefik.docker.network=container_monitoring"
+      - "traefik.enable=true"
+      - "traefik.port=9000"
+      - "traefik.default.protocol=http"
