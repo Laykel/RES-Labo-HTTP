@@ -1,3 +1,6 @@
+// Express.js server that sends JSON payloads to clients
+// Listens for HTTP requests on port 3000
+
 const express = require('express');
 const joke = require('./joke.js');
 
@@ -8,8 +11,14 @@ const port = 3000;
 app.get('/', (request, response) => {
   // Log the headers (debug)
   console.log(request.headers);
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    messages: joke.generateMessages(),
+  };
+
   // Send JSON back to host
-  response.json(joke.generateMessages());
+  response.json(payload);
 }).listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
