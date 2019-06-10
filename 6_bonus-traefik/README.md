@@ -62,12 +62,15 @@ _By default, we use the port 2205 as our web UI port. If you'd prefer another on
 - You can then launch a static app, using `docker-compose up -d static`, and check that it appears in the web interface.
 - In order to launch a certain number (here, 5) of dynamic app containers, use `docker-compose scale dynamic=5`.
 
-To validate our work, we did a simple check to observe the load balancing in action. In our `express.js` application, 
-we generated a random id with the `uuid` npm module and added it to our json payload. Each server will have its id, so when a response is sent, we can identify the sender.
+### Bonus validation
+
+To validate our work, we did a simple check to observe the load balancing in action. In our `express.js` application, we generated a random id with the `uuid` npm module and added it to our json payload. Each server will have its id, so when a response is sent, we can identify the sender.
 We sent several requests to `/api/jokes/` and saw that the server's id varied, it means the load balancer is working.
 
+As for the cluster management, we observed that killing an `express.js` container did not impact our infrastructure, and that adding any number of static or dynamic containers form steps 1 and 2 just adds to the list of servers to which requests can be balanced.
 
-As for the cluster management, we observed that killing an `express.js` container did not impact our infrastructure.
 ## Management UI
 
 ## Load balancing: round-robin vs sticky sessions
+
+We didn't have time to experiment with this bonus step.
