@@ -39,3 +39,9 @@ Authors: _Alison Savary, Luc Wachter_
   - Added an `apache2-foreground` script, as well as a php script to generate the reverse proxy's configuration depending on the environment variables.
   - Adapted `Dockerfile` accordingly.
 - Full documentation in directory `5_httpd-reverse-proxy`'s readme: [link](5_httpd-reverse-proxy/README.md).
+
+### Bonus steps
+
+- We have implemented the bonus steps using [Traefik](https://traefik.io/) and [Portainer](https://www.portainer.io/).
+- The configuration can be found in the `6_bonus-traefik` folder.
+- Full documentation in the folder's readme: [link](6_bonus-traefik/README.md).

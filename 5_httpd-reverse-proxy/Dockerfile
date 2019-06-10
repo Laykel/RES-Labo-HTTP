@@ -1,5 +1,7 @@
 FROM php:7.3-apache
 
+EXPOSE 80
+
 # Overwrite script used in parent image to add IP management
 COPY apache2-foreground /usr/local/bin/
 

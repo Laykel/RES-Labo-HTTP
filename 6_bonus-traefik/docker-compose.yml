@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  # Our Traefik RP / LB
+  reverse-proxy:
+    image: traefik # The official Traefik docker image
+    command:
+      - --api    # Enables the web UI 
+      - --docker # Tells Traefik to listen to docker
+    ports:
+      - "80:80"     # The HTTP port
+      - "2205:8080" # The Web UI (enabled by --api)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+
+  # Our static web server with static content
+  static:
+    image: res/apache-static
+    labels:
+      - traefik.backend=apache-static
+      - traefik.frontend.rule=Host:demo.res.ch
+      - traefik.port=80
+
+  # Our dynamic server serving JSON payloads
+  dynamic:
+    image: res/express-dynamic
+    labels:
+      - traefik.backend=express-dynamic
+      - traefik.frontend.rule=Host:demo.res.ch;PathPrefixStrip:/api/jokes/
+      - traefik.port=3000
